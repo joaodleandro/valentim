@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Valentine's Day</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .btn-yes {
+        font-size: 16px; /* Tamanho inicial */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img id="bearGif" src="media/main.gif" alt="Urso com um coração" class="img-fluid mb-3">
+    <p>Aceitas ser o meu valentim?</p>
+    <div>
+        <button id="yesBtn" class="btn btn-success btn-yes mr-2">Sim</button>
+        <button id="noBtn" class="btn btn-danger">Não</button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+let noPhrases = ["Por favor, aceita", "Vais mesmo rejeitar?", "Se rejeitares outra vez...", "Acabámos...", "Ainda continuas?", "Podes parar?", "Só queria fazer-te feliz :(", "Pronto...", "Enfim...", "Não vais mesmo parar, certo?", "Se clicares no não, vais estar a aceitar..", "Ja estou farto, xau"];
+let phraseIndex = 0;
+let yesBtnSize = 16; // Tamanho inicial do texto do botão Sim
+
+document.getElementById("yesBtn").onclick = function() {
+    document.body.innerHTML = '<div style="text-align:center;"><img src="media/sucess.gif" alt="Ursinhos se abraçando" class="img-fluid"></div>';
+}
+
+document.getElementById("noBtn").onclick = function() {
+    if (phraseIndex < noPhrases.length) {
+        this.innerText = noPhrases[phraseIndex++];
+        yesBtnSize += 15; // Aumenta o tamanho da fonte do botão Sim
+        document.getElementById("yesBtn").style.fontSize = yesBtnSize + "px";
+    } else if (phraseIndex == noPhrases.length ) {
+        this.innerText = noPhrases[noPhras.length-1];
+    }
+}
+</script>
+
+</body>
+</html>
